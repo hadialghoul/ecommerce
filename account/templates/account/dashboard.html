@@ -1,0 +1,70 @@
+{% include 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style rel="stylesheet">
+ body{
+    background-color: gray;
+ }
+ 
+
+
+</style>
+
+
+{% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <h6 class="alert alert-success text-center"  id="message-timer"> <i class="fa fa-check-circle"></i>&nbsp;{{message}}</h6>
+        {% endif %}
+        
+    {% endfor %}
+<body>
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Welcome  {{user}}</h4>
+    <hr>
+    <p>This is your dashboard where you can perform any of the following:</p>
+    <li>Track your orders</li>
+    <li>Manage you account</li>
+    
+    <br>
+    <br>
+
+    <h1>This is the dashboard</h1>
+
+  
+</div>
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Track Your Orders</h4>
+    <hr>
+    <p>Track all of your orders here</p>
+    <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'track-order' %}"> Track my Orders </a>
+</div>
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Manage Your Account</h4>
+    <hr>
+    <p>Update or delete your Account</p>
+    <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'profile-managment' %}"> Profile Managment </a>
+    
+   
+</div>
+<br></br>
+
+
+
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h4>Manage Shipping</h4>
+    <hr>
+    <p>Fill Out The Shipping Inforamtion</p>
+    <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'manage-shipping' %}"> Update  Shipping Info </a>
+    
+   
+</div>
+<br>
+</body>
+
+{% endblock %}
+
+
+
